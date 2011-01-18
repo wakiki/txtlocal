@@ -64,7 +64,7 @@ module Txtlocal
         @response = {}
         data = JSON.parse(response.body)
         data.each_pair do |k, v|
-          key = k.gsub(/\B[A-Z]/, '_\0').downcase.to_sym
+          key = k.gsub(/\B[A-Z]+/, '_\0').downcase.to_sym
           @response[key] = v
         end
       end
