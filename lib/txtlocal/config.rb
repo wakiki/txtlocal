@@ -18,5 +18,10 @@ module Txtlocal
       @test = false
     end
 
+    # Nice wrapper to check if we're testing
+    def testing?
+      !!@test
+    end
+
   end
 end

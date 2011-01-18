@@ -3,3 +3,4 @@ pkg/*
 .bundle
 txtlocal.komodoproject
 README.html
+api_login.rb

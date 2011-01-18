@@ -14,6 +14,11 @@ describe Txtlocal do
       end
       Txtlocal.config.should == remember
     end
+    it "should be resettable" do
+      c = Txtlocal.config
+      Txtlocal.reset_config
+      Txtlocal.config.should_not == c
+    end
   end
 
   describe "send_message" do
