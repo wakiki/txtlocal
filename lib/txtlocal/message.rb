@@ -26,7 +26,7 @@ module Txtlocal
     end
     def recipients=(recipients)
       @recipients = []
-      recipients.each do |recip|
+      [*recipients].each do |recip|
         add_recipient(recip)
       end
     end
