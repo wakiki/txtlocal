@@ -28,6 +28,7 @@ Or create a message manually
     msg.body = "Tickets will be available tomorrow morning at 9am"
     msg.recipients = ["0712 3893 xxx", "447923176xxx"]
     msg.add_recipient "+447729435xxx"
+    msg.custom = 123 # txtlocal will return this custom field in delivery confirmation so we can track delivery
     msg.send!
 
 You can override the sender on a per message basis

@@ -142,20 +142,20 @@ describe Txtlocal::Message do
         Txtlocal.reset_config
       end
       it "should send data to the API endpoint" do
-        msg = Txtlocal::Message.new("a message", "447729416583")
+        msg = Txtlocal::Message.new("a message", "447729416583", :custom => 123)
         msg.send!
         WebMock.should have_requested(:post, "https://www.txtlocal.com/sendsmspost.php").with(
           :body => {'uname' => "testuser", 'pword' => "testpass", 'json' => '1', 'test' => '0',
-                    'from' => "testing", 'selectednums' => "447729416583", 'message' => "a message"}
+                    'from' => "testing", 'selectednums' => "447729416583", 'message' => "a message", 'custom' => "123"}
         )
       end
       it "should comma sepratate multiple recipients" do
-        msg = Txtlocal::Message.new("a message", ["447729416583", "447984534657"])
+        msg = Txtlocal::Message.new("a message", ["447729416583", "447984534657"], :custom => 123)
         msg.send!
         WebMock.should have_requested(:post, "https://www.txtlocal.com/sendsmspost.php").with(
           :body => {'uname' => "testuser", 'pword' => "testpass", 'json' => '1', 'test' => '0',
                     'from' => "testing", 'selectednums' => "447729416583,447984534657",
-                    'message' => "a message"}
+                    'message' => "a message", 'custom' => "123"}
         )
       end
     end

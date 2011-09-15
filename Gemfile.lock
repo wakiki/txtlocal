@@ -39,7 +39,6 @@ PLATFORMS
 DEPENDENCIES
   autotest
   bundler (>= 1.0.0)
-  json
   rspec
   ruby-debug
   txtlocal!

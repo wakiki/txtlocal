@@ -8,6 +8,7 @@ module Txtlocal
     attr_accessor :body
     attr_accessor :recipients
     attr_accessor :from
+    attr_accessor :custom
 
     attr_accessor :response
 
@@ -57,6 +58,7 @@ module Txtlocal
 
     def options=(options)
       self.from = options[:from] if options.has_key?(:from)
+      self.custom = options[:custom] if options.has_key?(:custom)
     end
 
     def response=(response)
@@ -81,6 +83,7 @@ module Txtlocal
                         :from => from,
                         :message => body,
                         :selectednums => recipients.join(","),
+                        :custom => custom,
                         :uname => Txtlocal.config.username,
                         :pword => Txtlocal.config.password)
       result = http.start { |http| http.request(req) }
